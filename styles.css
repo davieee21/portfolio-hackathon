@@ -1,0 +1,529 @@
+/* Reset default margins & paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding & border do not increase element width */
+}
+
+/* Apply background gradient to the entire page */
+body {
+    background: linear-gradient(to top right, #1e1f1e, hwb(349 69% 4%)); /* Dark purple to pink */
+    min-height: 100vh; /* Ensure full height coverage */
+    margin: 0;
+    padding: 0;
+    padding-top: 60px; /* Prevent content from being hidden under fixed nav */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Center content */
+.container {
+    max-width: 1200px;
+    width: 100%; /* Ensure it adapts to screen size */
+    margin: 0 auto;
+    padding-left: 20px;  /* Adjust to reduce left spacing */
+    padding-right: 20px; /* Adjust to prevent truncation */
+}
+
+/* Responsive adjustments for the container */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* ---- NAVIGATION STYLES ---- */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0px; /* Reduce spacing between links */
+    margin-left: auto; /* Align links to the right */
+    justify-content: flex-end;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for navigation links */
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* ---- GRID FOR MAIN LAYOUT ---- */
+main {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack sections vertically */
+    gap: 40px;
+    max-width: 1200px; /* Maximum width for the main content */
+    width: 100%; /* Ensure responsiveness */
+    margin: 0 auto; /* Center the main section */
+    padding: 20px; /* Padding inside the main section */
+    box-sizing: border-box; /* Prevent padding from affecting the width */
+    background: transparent; /* Remove the background gradient here */
+    border-radius: 10px; /* Rounded edges for a modern look */
+}
+
+/* Full-width sections with consistent layout */
+#hero, #projects, #contact, #about, #skills, #cv {
+    width: 100%; /* Ensure sections span full width */
+    max-width: 1200px; /* Prevents overflow */
+    margin: 0 auto; /* Centers content */
+    padding: 40px 20px; /* Consistent padding */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    background: transparent; /* Ensure sections inherit the body's background */
+}
+
+/* Ensure no horizontal overflow */
+section {
+    width: 100%;
+    max-width: 1200px; /* Prevents overflow */
+    margin: 0 auto; /* Center content */
+    padding: 40px 20px; /* Consistent padding */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    overflow: hidden; /* Prevent content from spilling out */
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Stack sections vertically */
+        gap: 20px;
+    }
+    
+    .project-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-card {
+        width: 90%; /* Ensure cards do not overflow */
+    }
+}
+
+/* Styling for the "Back to Portfolio" link */
+.back-to-portfolio {
+    color: #333; /* Dark color for the text */
+    text-decoration: none; /* No underline by default */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 10px; /* Adds a little space above the link */
+    display: inline-block; /* Makes it behave like a block-level element but on the same line */
+}
+
+.back-to-portfolio:hover {
+    text-decoration: underline; /* Underline the link on hover */
+    color: #555; /* Darker color for hover effect */
+}
+
+
+
+/* ---- HERO SECTION STYLING ---- */
+#hero {
+    background: url('images/abstract1.jpeg') no-repeat center center/cover; /* Background image */
+    height: 400px; /* Set the height of the hero section */
+    color: rgb(31, 30, 30); /* Text color for contrast */
+    display: flex; /* Use flexbox to center the content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+    text-align: center; /* Center text */
+    width: 100%; /* Ensure section spans full width */
+}
+
+#hero h2 {
+    font-size: 3rem; /* Larger title */
+    margin-bottom: 10px; /* Space between title and paragraph */
+}
+
+#hero p {
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: 300; /* Lighter text weight */
+}
+
+/* ---- ABOUT ME SECTION STYLING ---- */
+#about {
+    background-color: #f4f4f4; /* Light background */
+    text-align: center; /* Center text */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: center; /* Center content */
+    align-items: center; /* Align content horizontally */
+    background: linear-gradient(135deg, rgba(170, 108, 108, 0.8), rgba(255, 255, 255, 0.8)); /* Subtle gradient */
+}
+
+/* About Me Title */
+#about h2 {
+    font-size: 2.5rem; /* Large title */
+    margin-bottom: 20px; /* Space between title and paragraph */
+    color: #333; /* Dark text */
+}
+
+/* About Me Paragraph */
+#about p {
+    font-size: 1.25rem; /* Adjust font size */
+    line-height: 1.6; /* Increase readability */
+    font-weight: 300; /* Lighter text */
+    max-width: 90%; /* Limit width for readability */
+    margin: 0 auto; /* Center paragraph */
+}
+
+/* Optional Profile Picture */
+#about .profile-pic {
+    width: 150px; /* Adjust image size */
+    height: 150px; /* Ensure square shape */
+    border-radius: 50%; /* Make image round */
+    margin-bottom: 20px; /* Space between image and text */
+    object-fit: cover; /* Ensure image fills the circle */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #about {
+        padding: 20px 10px; /* Adjust padding for mobile */
+    }
+}
+
+
+
+
+/* ---- SKILLS SECTION STYLING ---- */
+#skills {
+    background-color: #f3ced4; /* Light background to contrast skill cards */
+    padding: 40px 20px;
+    color: #333;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    background: linear-gradient(135deg, rgba(170, 108, 108, 0.8), rgba(255, 255, 255, 0.8)); /* Subtle gradient */
+}
+
+/* Styling the Skills Title */
+#skills h2 {
+    font-size: 2.5rem; /* Set a large font for the title */
+    margin-bottom: 20px; /* Space between the title and the paragraph */
+    color: #333; /* Dark text color for the title */
+    background: none; /* Ensure no background around the title */
+    border: none; /* Ensure no border */
+    padding: 0; /* Ensure no extra padding */
+}
+
+/* Styling the Skills Paragraph */
+#skills p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555; /* Lighter color for paragraph */
+}
+
+/* Skills Card Container */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Individual Skill Cards */
+.skill-card {
+    background-color: #f3ced4;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    min-width: 250px;
+    flex: 1 1 calc(33.33% - 40px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    overflow: hidden;
+}
+
+/* Skill Card Hover Effects */
+.skill-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Add a stronger shadow */
+    background-color: #efb3bd; /* Light background change */
+}
+
+/* Skill Icon Styling */
+.skill-card i {
+    font-size: 3rem; /* Larger icon size */
+    color: #555; /* Soft icon color */
+    margin-bottom: 20px; /* Space between icon and text */
+}
+
+/* Skill Card Text */
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #333; /* Darker text for the skill name */
+}
+
+.skill-card p {
+    font-size: 1rem;
+    color: #777; /* Lighter text for the skill description */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skill-card {
+        width: 100%; /* Full width on small screens */
+        padding: 25px;
+    }
+
+    .skills-grid {
+        gap: 20px; /* Reduce gap on smaller screens */
+    }
+}
+
+
+
+
+/* ---- TESTIMONIALS SECTION STYLING ---- */
+#testimonials {
+    background-color: #f4f4f4; /* Light background for consistency */
+    padding: 50px 20px; /* Add vertical and horizontal padding */
+    width: 100%; /* Ensure it spans the full width */
+    box-sizing: border-box; /* Prevent padding from affecting width */
+    text-align: center; /* Center align text */
+    margin: 0; /* Remove any margins */
+    background: linear-gradient(135deg, rgba(170, 108, 108, 0.8), rgba(255, 255, 255, 0.8)); /* Subtle gradient */
+}
+
+/* Styling the Testimonials Grid */
+.testimonial-grid {
+    display: flex; /* Arrange testimonials in a row */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center the testimonials */
+    gap: 20px; /* Add spacing between testimonials */
+    max-width: 1200px; /* Limit width for readability */
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Styling for the Testimonials section heading */
+#testimonials h2 {
+    font-size: 2.5rem; /* Large font size for the title */
+    margin-bottom: 20px; /* Spacing below the title */
+    color: #333; /* Darker text color for better readability */
+}
+
+/* Container for arranging testimonials in a grid */
+.testimonial-grid {
+    display: flex; /* Enables horizontal layout */
+    flex-wrap: wrap; /* Ensures responsiveness by wrapping on smaller screens */
+    justify-content: center; /* Centers the testimonials horizontally */
+    gap: 20px; /* Adds spacing between testimonial cards */
+}
+
+/* Individual testimonial cards */
+.testimonial-card {
+    background: #f3ced4; /* White background for contrast */
+    padding: 20px; /* Adds space inside each card */
+    max-width: 300px; /* Restricts width to keep a neat layout */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect */
+}
+
+/* Styling for testimonial text */
+.testimonial-card p {
+    font-size: 1.2rem; /* Slightly larger font for readability */
+    font-style: italic; /* Makes the text stand out */
+    color: #555; /* Dark gray text for a soft look */
+}
+
+/* Styling for the name of the person giving the testimonial */
+.testimonial-card h4 {
+    margin-top: 10px; /* Adds spacing above the name */
+    font-weight: bold; /* Emphasizes the name */
+    color: #333; /* Dark text color */
+}
+
+
+
+/* ---- CV SECTION STYLING ---- */
+#cv {
+    padding: 40px 20px; /* Padding for internal spacing */
+    background-color: #6f6d6d; /* White background for contrast */
+    text-align: center; /* Center the content */
+    width: 100vw; /* Make sure it spans the entire viewport width */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    margin: 0; /* Ensure there's no extra margin */
+    position: relative; /* Position relative to ensure it stays within the viewport */
+    left: 0; /* Align to the left */
+    background: linear-gradient(135deg, rgba(170, 108, 108, 0.8), rgba(255, 255, 255, 0.8)); /* Subtle gradient */
+}
+
+/* CV Link/Button Styling */
+.cv-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #868585; /* Blue button color */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for CV link */
+.cv-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional: Add some styling for the download link (if the user clicks on it) */
+.download-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green button color */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for download button */
+.download-link:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+
+/* ---- CONTACT SECTION STYLING ---- */
+#contact {
+    background-color: #f4f4f4; /* Light background color */
+    text-align: center; /* Center the text */
+    background: linear-gradient(135deg, rgba(170, 108, 108, 0.8), rgba(255, 255, 255, 0.8)); /* Subtle gradient */
+}
+
+
+/* Styling the Contact Title */
+#contact h2 {
+    font-size: 2.5rem; /* Larger font for the title */
+    margin-bottom: 20px; /* Space between the title and the contact info */
+    color: #333; /* Dark color for the title */
+}
+
+/* Styling the contact info (email, LinkedIn, etc.) */
+#contact p {
+    font-size: 1.2rem; /* Slightly larger text for the info */
+    color: #333; /* Dark color for text */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+/* Styling the social media links */
+.social-link {
+    color: #535252; /* Set default color for links */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Make the text bold */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    margin: 0 10px; /* Space between the links */
+}
+
+/* Hover effect for social media links */
+.social-link:hover {
+    color: #000000; /* Change color to blue or any color of your choice */
+}
+
+
+/* Form Styling */
+form {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form */
+    display: flex;
+    flex-direction: column; /* Stack the form fields vertically */
+    gap: 20px; /* Space between form elements */
+}
+
+/* Form Group Styling */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: flex-start; /* Align to the left */
+}
+
+/* Input and Textarea Styling */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Ensure full width */
+    padding: 10px; /* Add padding for the input fields */
+    font-size: 1rem; /* Adjust font size */
+    border: 1px solid #0b0b0b; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Textarea Specific Styling */
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px; /* Minimum height for the message area */
+}
+
+/* Submit Button Styling */
+button {
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 1.2rem; /* Adjust font size for readability */
+    color: white; /* White text */
+    background-color: #868585; /* Blue background */
+    border: 1px solid #0b0b0b; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #696969; /* Darker blue on hover */
+}
+
+/* Style for the Back to Portfolio link */
+.back-to-portfolio {
+    font-size: 1rem; /* Adjust font size */
+    color: #333; /* Set a color for the text */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding for a button-like effect */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #868585; /* Light background color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect */
+.back-to-portfolio:hover {
+    background-color: #696969; /* Dark background on hover */
+    color: #fff; /* White text on hover */
+}
+
+
+
+/* ---- FOOTER STYLING ---- */
+footer {
+    background-color: #333; /* Dark background for the footer */
+    color: white; /* White text color for contrast */
+    padding: 20px 0; /* Padding to create space around the content */
+    text-align: center; /* Center the text */
+}
+
+footer .container {
+    max-width: 1200px; /* Set a max-width for the content */
+    margin: 0 auto; /* Center the footer content */
+}
+
+footer p {
+    font-size: 1rem; /* Adjust the font size */
+    margin: 0; /* Remove default margin */
+}
